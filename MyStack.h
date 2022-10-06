@@ -1,5 +1,6 @@
 #ifndef MYSTACK_H
 #define MYSTACK_H
+#include <iostream>
 
 template <class T> class MyStack {
     private:
@@ -7,10 +8,11 @@ template <class T> class MyStack {
         T* end;
         unsigned int size;
     public:
-        MyStack();
         MyStack(unsigned int r);
         ~MyStack();
         void push(T element);
         T pop();
+        unsigned int getSize();
+        unsigned int getHeaderPos();
 };
 #endif
