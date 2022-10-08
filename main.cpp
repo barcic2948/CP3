@@ -6,9 +6,9 @@ int main(int, char**) {
     MyStack<int> temp(5);
     for(int i = 0; i < 5; i++) {
         temp.push(i);
-        std::cout << temp.getHeaderPos() << std::endl;
+    }
+    for(int i = 0; i < 7; i++) {
         temp.pop();
-        std::cout << temp.getHeaderPos() << std::endl;
     }
     std::cout << "=====\n";
     
