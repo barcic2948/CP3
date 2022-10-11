@@ -11,10 +11,7 @@ MyStack<T>::~MyStack() {
 
 template <class T> 
 void MyStack<T>::push(T element) {
-    if (MyStack::getHeaderPos()  == MyStack::size) {
-        std::cout << "Stack overflow\n";
-    }
-    else {
+    if (MyStack::getHeaderPos() != MyStack::size) {
         *MyStack::end++ = element;
     }
 }
@@ -23,9 +20,6 @@ template <class T>
 T MyStack<T>::pop() {
     if(MyStack::getHeaderPos()) {
         return *--MyStack::end;
-    }
-    else {
-        std::cout << "Stack is empty\n";
     }
 }
 
@@ -46,12 +40,8 @@ void MyStack<T>::setHeaderPos(unsigned int index) {
 
 template <class T> 
 void MyStack<T>::insert(int index, T element) {
-    if (MyStack::getHeaderPos()  == MyStack::size) {
-        std::cout << "Stack overflow\n";
-    }
-    else if (index > MyStack::size - 1){
-        std::cout << "Index out of range\n";
-    }
+    if (MyStack::getHeaderPos()  == MyStack::size) {}
+    else if (index > MyStack::size - 1){}
     else {
         for(int i = MyStack<T>::getHeaderPos() - 1; i > index - 1; i--) {
             *(MyStack::start + i + 1) = *(MyStack::start + i);

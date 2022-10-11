@@ -1,6 +1,5 @@
 #ifndef MYSTACK_H
 #define MYSTACK_H
-#include <iostream>
 
 template <class T> class MyStack {
     private:
