@@ -11,7 +11,7 @@ MyStack<T>::~MyStack() {
 
 template <class T> 
 void MyStack<T>::push(T element) {
-    if (MyStack::end - MyStack::start  == MyStack::size) {
+    if (MyStack::getHeaderPos()  == MyStack::size) {
         std::cout << "Stack overflow\n";
     }
     else {
@@ -21,7 +21,7 @@ void MyStack<T>::push(T element) {
 
 template <class T> 
 T MyStack<T>::pop() {
-    if(MyStack::end - MyStack::start) {
+    if(MyStack::getHeaderPos()) {
         return *--MyStack::end;
     }
     else {
@@ -39,9 +39,14 @@ unsigned int MyStack<T>::getHeaderPos() {
     return MyStack::end - MyStack::start;
 }
 
+template <class T>
+void MyStack<T>::setHeaderPos(unsigned int index) {
+    MyStack::end = MyStack::start + index;
+}
+
 template <class T> 
 void MyStack<T>::insert(int index, T element) {
-    if (MyStack::end - MyStack::start  == MyStack::size) {
+    if (MyStack::getHeaderPos()  == MyStack::size) {
         std::cout << "Stack overflow\n";
     }
     else if (index > MyStack::size - 1){

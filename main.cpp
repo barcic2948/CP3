@@ -5,10 +5,10 @@ int main(int, char**) {
     std::cout << "Hello, world!\n";
     MyStack<int> temp(5);
     for(int i = 0; i < 4; i++) {
-        temp.push(i);
+        temp.insert(i, i);
     }
 
-    temp.insert(4, 5);
+    temp.push(4);
 
     for(int i = 0; i < 5; i++) {
         std::cout << temp.pop() << std::endl;
