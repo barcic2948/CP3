@@ -39,5 +39,22 @@ unsigned int MyStack<T>::getHeaderPos() {
     return MyStack::end - MyStack::start;
 }
 
+template <class T> 
+void MyStack<T>::insert(int index, T element) {
+    if (MyStack::end - MyStack::start  == MyStack::size) {
+        std::cout << "Stack overflow\n";
+    }
+    else if (index > MyStack::size - 1){
+        std::cout << "Index out of range\n";
+    }
+    else {
+        for(int i = MyStack<T>::getHeaderPos() - 1; i > index - 1; i--) {
+            *(MyStack::start + i + 1) = *(MyStack::start + i);
+        }
+        *(MyStack<T>::start + index) = element;
+        MyStack::end++;
+    } 
+}
+
 template class MyStack<int>;
 template class MyStack<float>;

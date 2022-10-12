@@ -14,5 +14,7 @@ template <class T> class MyStack {
         T pop();
         unsigned int getSize();
         unsigned int getHeaderPos();
+        void setHeaderPos(unsigned int index);
+        void insert(int index, T element);
 };
 #endif
